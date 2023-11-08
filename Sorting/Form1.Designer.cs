@@ -132,10 +132,10 @@
             // outputL
             // 
             outputL.AutoSize = true;
-            outputL.Location = new Point(6, 25);
+            outputL.Location = new Point(6, 30);
             outputL.Margin = new Padding(2, 0, 2, 0);
             outputL.Name = "outputL";
-            outputL.Size = new Size(0, 15);
+            outputL.Size = new Size(26, 15);
             outputL.TabIndex = 9;
             // 
             // timeL

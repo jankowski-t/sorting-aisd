@@ -54,10 +54,7 @@ namespace Sorting
                     outputL.Text += ' ';
                 }
             }
-            else
-            {
-                timeValL.Text = (time.ToString() + " ms");
-            }
+            timeValL.Text = (time.ToString() + " ms");
         }
 
         private void deactivateControls()
@@ -97,7 +94,7 @@ namespace Sorting
             List<int> arr = parseOrGenerate();
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
-            
+
             for(int i = 0; i < (arr.Count - 1); i++)
             {
                 for(int j = 0; j < (arr.Count - 1 - i); j++)
@@ -141,7 +138,7 @@ namespace Sorting
             List<int> arr = parseOrGenerate();
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
-            
+
             for(int i = 0; i < (arr.Count - 1); i++)
             {
                 int jMin = i, j;
@@ -157,7 +154,7 @@ namespace Sorting
                     swapAt(arr, i, jMin);
                 }
             }
-            
+
             stopwatch.Stop();
             printResult(arr, stopwatch.ElapsedMilliseconds);
             activateControls();
@@ -169,9 +166,18 @@ namespace Sorting
             List<int> arr = parseOrGenerate();
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
-            
-            //sort
-            
+
+            for(int i = 1; i < arr.Count; i++)
+            {
+                int x = arr[i];
+                int j;
+                for(j = (i - 1); (j >= 0) && (arr[j] > x); j--)
+                {
+                    arr[j + 1] = arr[j];
+                }
+                arr[j + 1] = x;
+            }
+
             stopwatch.Stop();
             printResult(arr, stopwatch.ElapsedMilliseconds);
             activateControls();
@@ -182,19 +188,22 @@ namespace Sorting
             int x = i;
             int y = j;
             int z = i;
-            while((x < j) && (y < k)) {
+            while((x < j) && (y < k))
+            {
                 if(b[x] < b[y])
                 {
                     a[z] = b[x];
                     x++;
                 }
-                else {
+                else
+                {
                     a[z] = b[y];
                     y++;
                 }
                 z++;
             }
-            while(x < j) {
+            while(x < j)
+            {
                 a[z] = b[x];
                 x++;
                 z++;
@@ -228,7 +237,7 @@ namespace Sorting
 
             var b = new List<int>(arr);
             mergeSort(arr, 0, arr.Count, b);
-            
+
             stopwatch.Stop();
             printResult(arr, stopwatch.ElapsedMilliseconds);
             activateControls();
@@ -240,9 +249,9 @@ namespace Sorting
             List<int> arr = parseOrGenerate();
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
-            
+
             //sort
-            
+
             stopwatch.Stop();
             printResult(arr, stopwatch.ElapsedMilliseconds);
             activateControls();
